@@ -1,1 +1,3 @@
 # Three.jsFirstAssignment
+
+![](LightAssignment.JPG)
