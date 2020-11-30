@@ -79,6 +79,18 @@
     const dodecahedron = new THREE.Mesh(geometry5, material5);
     dodecahedron.position.y = -2; //move it down
     scene.add(dodecahedron);
+	
+	const geometry6 = new THREE.OctahedronBufferGeometry(.5);
+	const material6 = new THREE.MeshPhongMaterial();
+	const octahedron = new THREE.Mesh(geometry6, material6);
+	octahedron.position.x = 4;
+	scene.add(octahedron);
+	
+	const geometry7 = new THREE.IcosahedronBufferGeometry(.5);
+	const material7 = new THREE.MeshPhongMaterial();
+	const icosahedron = new THREE.Mesh(geometry7, material7);
+	icosahedron.position.x = -4;
+	scene.add(icosahedron);
 
 
     //setting the mesh material to "wireframe = true" can make it easier to see the faces of the geometry 
@@ -88,6 +100,8 @@
       material3.wireframe = true;
       material4.wireframe = true;
       material5.wireframe = true;
+	  material6.wireframe = true;
+	  material7.wireframe = true;
     }
 
     
@@ -125,6 +139,8 @@
       rotatex(torus, -0.1);
       rotateObject(knot, -0.02, 0.01);
       rotateObject(dodecahedron, -0.01, 0.01);
+	  rotatedown(octahedron, .15);
+	  rotatedown(icosahedron, .15);
 
       white_pointlight.position.x += light_dx;
 
@@ -160,6 +176,10 @@
 	}
 	
 	function rotatex(o, dx) {
+	  o.rotation.x += dx;
+	}
+	
+	function rotatedown(o,dx) {
 	  o.rotation.x += dx;
 	}
 
